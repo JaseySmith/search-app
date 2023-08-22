@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from "react";
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function Contact() {
   const [status, setStatus] = useState("Send Message");
@@ -30,7 +31,7 @@ function Contact() {
         <Header />
         <div id="contact">
             <h2>Contact Us</h2>
-            <p className="text">Sed malesuada libero vel nulla eleifend gravida. Integer vitae tellus eros.</p>
+            <p className="text">We're delighted to hear from you. Please don't hesitate to reach out with any inquiries."</p>
             <form onSubmit={handleSubmit}>
                 <input type="text" id="name" name="name" placeholder="Name"></input>
                 <input type="text" id="email" name="email" placeholder="Enter email"></input>
@@ -38,6 +39,7 @@ function Contact() {
                 <button className="btn" type="submit" name="submit" value="Send Message">{status}</button>
             </form>
         </div>
+        <Footer />
     </div>
   );
 }

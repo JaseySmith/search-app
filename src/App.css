@@ -8,12 +8,16 @@
   --light: #D6D6D6;
   --dark: #0E1116;
   --shade: #171b21;
+  --overlay: rgba(14, 17, 22, 0.5);
+
+  --accent: #FF4747;
 }
 
 [data-theme="dark"] {
   --light: #0E1116;
   --dark: #D6D6D6;
   --shade: #CCCCCC;
+  --overlay: rgba(214, 214, 214, 0.5);
 }
 /* --- Misc. --- */
 * {
@@ -60,6 +64,7 @@ body {
 
 #logo {
   font-size: 2.5em;
+  font-weight: 700;
   font-family: 'Amatic SC', cursive;
   text-decoration: none;
   color: var(--light);
@@ -67,7 +72,7 @@ body {
 }
 
 #logo span {
-  color: #FF4747;
+  color: var(--accent);
 }
 
 .nav-menu {
@@ -172,8 +177,8 @@ h1 {
 .btn {
   font-weight: 700;
   text-decoration: none;
-  border: 2px solid #FF4747;
-  color: #FF4747;
+  border: 2px solid var(--accent);
+  color: var(--accent);
   overflow: hidden;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -192,7 +197,7 @@ h1 {
   height: 100%;
   top: 0;
   left: -100%;
-  background-color: #FF4747;
+  background-color: var(--accent);
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -238,7 +243,7 @@ h2 {
 .fa-compass, .fa-readme, .fa-share-from-square {
   font-size: 4em;
   margin-bottom: 16px;
-  color: #FF4747;
+  color: var(--accent);
 }
 
 h3 {
@@ -283,7 +288,7 @@ h3 {
   border-radius: 20px;
 }
 
-.overlay {
+#social .overlay {
   position: absolute;
   top: 0;
   right: 0;
@@ -414,27 +419,15 @@ form button {
 /* --- Search Page --- */
 #search {
   padding: 82.5px 0 0;
-  background-color: var(--shade);
   transition: all 0.2s;
   min-height: 100vh;
-}
-
-.search-controls {
-  display: grid;
-  grid-template-columns: 32% 16%;
-  grid-template-rows: auto;
-  gap: 53%;
-  justify-content: center;
-  align-items: center; 
-  background-color: var(--dark);
-  transition: all 0.2s;
-  border-top: 2px solid var(--shade);
-  padding: 48px 10%;
+  margin: 0 10%;
 }
 
 .relative {
   position: relative;
-  width: 100%;
+  width: 32%;
+  margin: 96px auto 0;
 }
 
 #search input[type="text"] {
@@ -446,18 +439,30 @@ form button {
   border-radius: 10px;
   border: none;
   background-color: var(--shade);
-  color: var(--light);;
+  box-shadow: 0px 0px 10px 3px var(--accent);
+  color: var(--light);
   transition: all 0.2s;
+}
+
+#search input:focus{
+  outline: none;
 }
 
 .fa-magnifying-glass {
   position: absolute;
-  color: #FF4747;
+  color: var(--light);
   right: 0;
   top: 0;
   font-size: 1em;
   opacity: 0.5;
   padding: 18px;
+}
+
+#search .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 48px 0 16px;
 }
 
 /* Sort By Input */
@@ -540,8 +545,7 @@ select:focus + .focus {
 
 #search h2 {
   text-align: left;
-  padding: 0 10%;
-  margin: 32px 0 0;
+  margin: 0;
 }
 
 #search .container {
@@ -551,15 +555,18 @@ select:focus + .focus {
   gap: 2vw;
   justify-content: center;
   align-items: center;
-  padding: 32px 10%;
+  margin-bottom: 96px;
 }
 
 #search .card {
   position: relative;
-  background-color: var(--dark);
   transition: all 0.2s;
-  border-radius: 20px;
-  height: 288px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+#search a {
+  text-decoration: none;
 }
 
 #search img {
@@ -567,11 +574,32 @@ select:focus + .focus {
   width: 100%;
   margin: 0;
   object-fit: cover;
-  border-radius: 20px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  height: 288px;
 }
 
 #search .overlay {
-  opacity: 0.33;
+  width: 100%;
+  background-color: var(--shade);
+  transition: all 0.2s;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 16px;
+  text-align: left;
+}
+
+#search .overlay h3, .text {
+  color: var(--light);
+  transition: all 0.2s;
+}
+
+#search h3 {
+  margin: 0 0 8px;
+}
+
+.fa-location-dot {
+  margin-right: 8px;
 }
 
 
@@ -653,16 +681,8 @@ select:focus + .focus {
     padding: 32px 5%;
   }
 
-  .search-controls {
-    padding: 48px 5%;
-  }
-
-  #search h2 {
-    padding: 0 5%;
-  }
-  
-  #search .container {
-    padding: 32px 5%;
+  #search {
+    margin: 0 5%;
   }
 
   #search .container {
@@ -670,7 +690,7 @@ select:focus + .focus {
     grid-template-rows: auto auto;
   }
 
-  #search .card {
+  #search img {
     height: 254px;
   }
 }
@@ -710,18 +730,13 @@ select:focus + .focus {
     align-items: center;
   }
 
-  .search-controls {
-    grid-template-columns: 60% 40%;
-    grid-template-rows: auto;
-    gap: 2vw;
-  }
-
   #search .container {
     grid-template-columns: 100%;
     grid-template-rows: auto;
+    gap: 4vw;
   }
 
-  #search .card {
+  #search img {
     height: 238px;
   }
 }

@@ -9,28 +9,28 @@ function Social() {
     <div>
         <div id="social">
             <h2>Follow Us! @scaryplaces_</h2>
-            <p className="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+            <p className="text">Follow us on Instagram for bone-chilling visuals, haunting stories, and a journey into the unknown.</p>
             <div className="container">
                 <div className="insta-post">
-                  <a href="/">
+                  <a href="https://www.instagram.com/p/BuPtonNFjFN/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" target="_blank" rel="noreferrer">
                     <img src={Post1} alt="" />
                     <div className="overlay"></div>
                   </a>
                 </div>
                 <div className="insta-post">
-                  <a href="/">
+                  <a href="https://www.instagram.com/p/BxgBlWXFVuD/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" target="_blank" rel="noreferrer">
                     <img src={Post2} alt="" />
                     <div className="overlay"></div>
                   </a>
                 </div>
                 <div className="insta-post">
-                  <a href="/">
+                  <a href="https://www.instagram.com/p/BuW_jPIlVKj/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" target="_blank" rel="noreferrer">
                     <img src={Post3} alt="" />
                     <div className="overlay"></div>
                   </a>
                 </div>
                 <div className="insta-post">
-                  <a href="/">
+                  <a href="https://www.instagram.com/p/BvfZk71l3mo/?utm_source=ig_web_copy_link" target="_blank" rel="noreferrer">
                     <img src={Post4} alt="" />
                     <div className="overlay"></div>
                   </a>
