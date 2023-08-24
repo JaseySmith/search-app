@@ -42,7 +42,7 @@ function Home() {
                 <div className="card">
                     <a href="/">
                         <img src={Post1} alt="" />
-                        <div className="overlay">
+                        <div className="content">
                             <h3>Chernobyl</h3>
                             <p className="text"><FontAwesomeIcon icon={faLocationDot} />Kyiv Oblast, Ukraine</p>
                         </div>
@@ -51,7 +51,7 @@ function Home() {
                 <div className="card">
                     <a href="/">
                         <img src={Post2} alt="" />
-                        <div className="overlay">
+                        <div className="content">
                             <h3>The Queen Mary</h3>
                             <p className="text"><FontAwesomeIcon icon={faLocationDot} />Long Beach, California</p>
                         </div>
@@ -60,7 +60,7 @@ function Home() {
                 <div className="card">
                     <a href="/">
                         <img src={Post3} alt="" />
-                        <div className="overlay">
+                        <div className="content">
                             <h3>Aokigahara Forest</h3>
                             <p className="text"><FontAwesomeIcon icon={faLocationDot} />Yamanashi, Japan</p>
                         </div>
@@ -69,7 +69,7 @@ function Home() {
                 <div className="card">
                     <a href="/">
                         <img src={Post4} alt="" />
-                        <div className="overlay">
+                        <div className="content">
                             <h3>Willard Asylum</h3>
                             <p className="text"><FontAwesomeIcon icon={faLocationDot} />Willard, New York</p>
                         </div>
@@ -78,7 +78,7 @@ function Home() {
                 <div className="card">
                     <a href="/">
                         <img src={Post5} alt="" />
-                        <div className="overlay">
+                        <div className="content">
                             <h3>Catacombs of Paris</h3>
                             <p className="text"><FontAwesomeIcon icon={faLocationDot} />Paris, France</p>
                         </div>
@@ -87,7 +87,7 @@ function Home() {
                 <div className="card">
                     <a href="/">
                         <img src={Post6} alt="" />
-                        <div className="overlay">
+                        <div className="content">
                             <h3>Alcatraz</h3>
                             <p className="text"><FontAwesomeIcon icon={faLocationDot} />San Francisco, California</p>
                         </div>

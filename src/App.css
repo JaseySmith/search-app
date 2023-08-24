@@ -8,16 +8,13 @@
   --light: #D6D6D6;
   --dark: #0E1116;
   --shade: #171b21;
-  --overlay: rgba(14, 17, 22, 0.5);
-
-  --accent: #FF4747;
+  --accent: #ff4747;
 }
 
 [data-theme="dark"] {
   --light: #0E1116;
-  --dark: #D6D6D6;
-  --shade: #CCCCCC;
-  --overlay: rgba(214, 214, 214, 0.5);
+  --dark: #F5F5F5;
+  --shade: #EBEBEB;
 }
 /* --- Misc. --- */
 * {
@@ -579,7 +576,7 @@ select:focus + .focus {
   height: 288px;
 }
 
-#search .overlay {
+#search .content {
   width: 100%;
   background-color: var(--shade);
   transition: all 0.2s;
@@ -589,7 +586,11 @@ select:focus + .focus {
   text-align: left;
 }
 
-#search .overlay h3, .text {
+#search .content h3 {
+  font-weight: 400;
+}
+
+#search .content h3, .text {
   color: var(--light);
   transition: all 0.2s;
 }
@@ -668,6 +669,10 @@ select:focus + .focus {
     padding: 96px 5% 40px;
   }
 
+  .relative {
+    width: 48.5%;
+  }
+
   #social .container {
     grid-template-columns: 48.5% 48.5%;
     grid-template-rows: auto auto;
@@ -728,6 +733,10 @@ select:focus + .focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .relative {
+    width: 100%;
   }
 
   #search .container {
