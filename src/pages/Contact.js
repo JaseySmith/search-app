@@ -31,7 +31,7 @@ function Contact() {
         <Header />
         <div id="contact">
             <h2>Contact Us</h2>
-            <p className="text">We're delighted to hear from you. Please don't hesitate to reach out with any inquiries."</p>
+            <p className="text">We're delighted to hear from you. Please don't hesitate to reach out with any inquiries.</p>
             <form onSubmit={handleSubmit}>
                 <input type="text" id="name" name="name" placeholder="Name"></input>
                 <input type="text" id="email" name="email" placeholder="Enter email"></input>

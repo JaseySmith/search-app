@@ -5,16 +5,18 @@
 
 /* --- Variables --- */
 :root {
-  --light: #D6D6D6;
-  --dark: #0E1116;
+  --light: #EBEBEB; /* text */
+  --dark: #0E1116; /* background */
   --shade: #171b21;
+  --overlay: rgba(14, 17, 22, 0.8);
   --accent: #ff4747;
 }
 
 [data-theme="dark"] {
-  --light: #0E1116;
-  --dark: #F5F5F5;
-  --shade: #EBEBEB;
+  --light: #0E1116; /* text */
+  --dark: #EBEBEB; /* background */
+  --shade: #E0E0E0;
+  --overlay: rgba(14, 17, 22, 0.4);
 }
 /* --- Misc. --- */
 * {
@@ -45,7 +47,7 @@ body {
 #header {
   padding: 16px 10%;
   position: fixed;
-  background-color: var(--dark);
+  background-color: transparent;
   transition: all 0.2s;
   top: 0;
   right: 0;
@@ -157,7 +159,7 @@ h1 {
 #home .flex {
   display: flex;
   align-items: center;
-  
+  z-index: 1;
 }
 
 .alt-btn {

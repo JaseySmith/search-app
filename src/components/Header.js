@@ -1,9 +1,8 @@
-import React from 'react';
-import { useState } from "react";
+import React, { useState } from 'react';
 import DarkModeToggle from './DarkMode';
 
 export default function Header() {
-  const [isNavExpanded, setIsNavExpanded] = useState(false)
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
   
   const handleNavClick = () => {
     setIsNavExpanded(!isNavExpanded);
