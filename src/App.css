@@ -47,7 +47,7 @@ body {
 #header {
   padding: 16px 10%;
   position: fixed;
-  background-color: transparent;
+  background-color: var(--dark);
   transition: all 0.2s;
   top: 0;
   right: 0;
