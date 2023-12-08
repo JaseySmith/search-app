@@ -6,7 +6,9 @@ require('dotenv').config();
 
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://scaryplacesnearme.com']
+}));
 app.use(express.json());
 app.use("/", router);
 app.listen(5000, () => console.log("Server Running"));
