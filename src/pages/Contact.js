@@ -1,29 +1,22 @@
 import React from 'react';
-import { useState } from "react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 function Contact() {
-  const [status, setStatus] = useState("Send Message");
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("Sending...");
-    const { name, email, message } = e.target.elements;
-    let details = {
-      name: name.value,
-      email: email.value,
-      message: message.value,
-    };
-    let response = await fetch("http://localhost:5000/contact", {
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+    
+    fetch("/", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(details),
-    });
-    setStatus("Send Message");
-    let result = await response.json();
-    alert(result.status);
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => alert("Thank you! Your message has been recieved."))
+      .catch((error) => alert(error));
   };
 
   return (
@@ -36,7 +29,7 @@ function Contact() {
                 <input type="text" id="name" name="name" placeholder="Name"></input>
                 <input type="text" id="email" name="email" placeholder="Enter email"></input>
                 <textarea name="message" id="message" placeholder="How may I help?"></textarea>
-                <button className="btn" type="submit" name="submit" value="Send Message">{status}</button>
+                <button className="btn" type="submit" name="submit" value="Send Message">Send Message</button>
             </form>
         </div>
         <Footer />
