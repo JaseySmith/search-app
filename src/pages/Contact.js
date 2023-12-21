@@ -15,7 +15,10 @@ function Contact() {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => alert("Thank you! Your message has been recieved."))
+      .then(() => {
+        alert("Thank you! Your message has been recieved.");
+        myForm.reset();
+      })
       .catch((error) => alert(error));
   };
 
