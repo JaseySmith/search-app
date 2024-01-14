@@ -8,7 +8,7 @@
   --light: #EBEBEB; /* text */
   --dark: #0E1116; /* background */
   --shade: #171b21;
-  --overlay: rgba(14, 17, 22, 0.8);
+  --overlay: rgba(0, 0, 0, 0.6);
   --accent: #ff4747;
 }
 
@@ -16,7 +16,7 @@
   --light: #0E1116; /* text */
   --dark: #EBEBEB; /* background */
   --shade: #E0E0E0;
-  --overlay: rgba(14, 17, 22, 0.4);
+  --overlay: rgba(233, 233, 233, 0.8);
 }
 /* --- Misc. --- */
 * {
@@ -47,7 +47,6 @@ body {
 #header {
   padding: 16px 10%;
   position: fixed;
-  /* background-color: var(--dark); */
   transition: all 0.2s;
   top: 0;
   right: 0;
@@ -90,6 +89,10 @@ body {
 
 .nav-menu a:hover {
   opacity: 1;
+}
+
+.scrolled {
+  background-color: var(--dark);
 }
 
 
@@ -137,8 +140,9 @@ body {
   background: url(/src/img/foggy-dark-forest.jpg);
   background-size: cover;
   background-position: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--overlay);
   background-blend-mode: overlay;
+  transition: all 0.1s;
 }
 
 #home .container {
@@ -182,33 +186,21 @@ h1 {
   font-weight: 700;
   text-decoration: none;
   border: 2px solid var(--accent);
-  color: var(--accent);
+  background-color: var(--accent);
+  color: var(--dark);
   overflow: hidden;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
   padding: 16px 32px;
   border-radius: 10px;
   display: inline-block;
   position: relative;
 }
 
-.btn:before{
-  content: "";
-  z-index: -1;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: -100%;
-  background-color: var(--accent);
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
 .btn:hover{
-  color: var(--dark);
+  background-color: transparent;
+  color: var(--accent);
   transition: all 0.2s;
 }
 
@@ -230,9 +222,9 @@ h2 {
 
 #about .container {
   display: grid;
-  grid-template-columns: 32% 32% 32%;
+  grid-template-columns: 33fr 33fr 33fr;
   grid-template-rows: auto;
-  gap: 2vw;
+  gap: 1vw;
   justify-content: center;
   align-items: center;
 }
@@ -268,8 +260,8 @@ h3 {
 
 #social .container {
   display: grid;
-  grid-template-columns: 23.25% 23.25% 23.25% 23.25%;
-  gap: 2vw;
+  grid-template-columns: 25fr 25fr 25fr 25fr;
+  gap: 1vw;
   grid-template-rows: auto;
   justify-content: center;
   align-items: center;
@@ -355,6 +347,10 @@ footer nav a {
   align-items: center;
 }
 
+#contact h2 {
+  margin-bottom: 8px;
+}
+
 #contact .text {
   margin-bottom: 32px;
 }
@@ -390,6 +386,7 @@ form textarea {
 
 form button {
   width: auto;
+  cursor: pointer;
   margin-top: 28px;
   background-color: transparent;
   font-family: 'Nunito', sans-serif;
@@ -398,6 +395,7 @@ form button {
 }
 
 ::-webkit-input-placeholder {
+  font-weight: 300;
   color: var(--light);
   transition: color 0.2s;
   font-family: 'Nunito', sans-serif;
@@ -405,6 +403,7 @@ form button {
 }
 
 ::-moz-placeholder {
+  font-weight: 300;
   color: var(--light);
   transition: color 0.2s;
   font-family: 'Nunito', sans-serif;
@@ -412,6 +411,7 @@ form button {
 }
 
 ::-ms-input-placeholder {
+  font-weight: 300;
   color: var(--light);
   transition: color 0.2s;
   font-family: 'Nunito', sans-serif;
@@ -443,7 +443,7 @@ form button {
   border-radius: 10px;
   border: none;
   background-color: var(--shade);
-  box-shadow: 0px 0px 10px 3px var(--accent);
+  box-shadow: 0px 0px 10px 0px var(--accent);
   color: var(--light);
   transition: all 0.2s;
 }
@@ -554,56 +554,56 @@ select:focus + .focus {
 
 #search .container {
   display: grid;
-  grid-template-columns: 32% 32% 32%;
+  grid-template-columns: 33fr 33fr 33fr;
   grid-template-rows: auto auto;
-  gap: 2vw;
+  gap: 1vw;
   justify-content: center;
   align-items: center;
   margin-bottom: 96px;
 }
 
 #search .card {
+  padding: 16px;
+  background-color: var(--shade);
   position: relative;
   transition: all 0.2s;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  border-radius: 20px;
 }
 
-#search a {
+#search .card a {
   text-decoration: none;
 }
 
 #search img {
-  height: 100%;
   width: 100%;
   margin: 0;
   object-fit: cover;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  height: 288px;
+  border-radius: 10px;
+  height: 300px;
 }
 
-#search .content {
+.card .content {
   width: 100%;
-  background-color: var(--shade);
   transition: all 0.2s;
-  border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  padding: 16px;
+  border-bottom-left-radius: 20px;
+  padding: 16px 0;
   text-align: left;
 }
 
-#search .content h3 {
-  font-weight: 400;
-}
-
-#search .content h3, .text {
+.card .content h3, .text {
   color: var(--light);
   transition: all 0.2s;
 }
 
-#search h3 {
-  margin: 0 0 8px;
+#search .card h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin: 0;
+}
+
+#search .card .text {
+  opacity: 0.5;
 }
 
 .fa-location-dot {
@@ -613,37 +613,6 @@ select:focus + .focus {
 
 
 /* --- Media Queries --- */
-@media screen and (min-width: 1920px) {
-  #header {
-    padding: 16px 15%;
-  }
-
-  #home {
-    padding: 16px 15%;
-  }
-
-  #about {
-    padding: 96px 15% 40px;
-  }
-
-  #social {
-    padding: 96px 15% 40px;
-  }
-
-  footer {
-    padding: 32px 15%;
-  }
-
-  #contact {
-    padding: 96px 30% 40px;
-  }
-
-  #search {
-    margin: 0 15%;
-  }
-}
-
-
 @media screen and (max-width: 1024px) {
   .nav-menu {
     transform: translateY(-100%);
@@ -712,7 +681,7 @@ select:focus + .focus {
   }
 
   #social .container {
-    grid-template-columns: 48.5% 48.5%;
+    grid-template-columns: 50fr 50fr;
     grid-template-rows: auto auto;
   }
   
@@ -729,8 +698,8 @@ select:focus + .focus {
   }
 
   #search .container {
-    grid-template-columns: 48.5% 48.5%;
-    grid-template-rows: auto auto;
+    grid-template-columns: 50fr 50fr;
+    grid-template-rows: auto auto auto;
   }
 
   #search img {
@@ -787,3 +756,64 @@ select:focus + .focus {
     height: 238px;
   }
 }
+
+@media screen and (min-width: 1920px) {
+  #header {
+    padding: 16px 15%;
+  }
+
+  #home {
+    padding: 16px 15%;
+  }
+
+  #about {
+    padding: 96px 15% 40px;
+  }
+
+  #social {
+    padding: 96px 15% 40px;
+  }
+
+  footer {
+    padding: 32px 15%;
+  }
+
+  #contact {
+    padding: 96px 30% 40px;
+  }
+
+  #search {
+    margin: 0 15%;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  #header {
+    padding: 16px 20%;
+  }
+
+  #home {
+    padding: 16px 20%;
+  }
+
+  #about {
+    padding: 96px 20% 40px;
+  }
+
+  #social {
+    padding: 96px 20% 40px;
+  }
+
+  footer {
+    padding: 32px 20%;
+  }
+
+  #contact {
+    padding: 96px 30% 40px;
+  }
+
+  #search {
+    margin: 0 20%;
+  }
+}
+
