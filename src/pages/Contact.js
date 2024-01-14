@@ -32,7 +32,7 @@ function Contact() {
                 <input type="hidden" name="form-name" value="contact"></input>
                 <input type="text" id="name" name="name" placeholder="Name" pattern="[A-Za-z ]+" title="Only letters are allowed" required></input>
                 <input type="text" id="email" name="email" placeholder="Enter email" required></input>
-                <textarea name="message" id="message" placeholder="How may I help?"></textarea>
+                <textarea name="message" id="message" placeholder="How can we help?"></textarea>
                 <button className="btn" type="submit" name="submit" value="Send Message">Send Message</button>
             </form>
         </div>
