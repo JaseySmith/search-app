@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Card from '../components/Card';
 import Post1 from '../img/post1.webp';
 import Post2 from '../img/post2.webp';
 import Post3 from '../img/post3.webp';
@@ -9,7 +10,6 @@ import Post5 from '../img/post5.webp';
 import Post6 from '../img/post6.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
   return (
@@ -39,60 +39,12 @@ function Home() {
                 </div>
             </div>
             <div className="container">
-                <div className="card">
-                    <a href="/">
-                        <img src={Post1} alt="" />
-                        <div className="content">
-                            <h3>Chernobyl</h3>
-                            <p className="text"><FontAwesomeIcon icon={faLocationDot} />Kyiv Oblast, Ukraine</p>
-                        </div>
-                    </a>
-                </div>
-                <div className="card">
-                    <a href="/">
-                        <img src={Post2} alt="" />
-                        <div className="content">
-                            <h3>The Queen Mary</h3>
-                            <p className="text"><FontAwesomeIcon icon={faLocationDot} />Long Beach, California</p>
-                        </div>
-                    </a>
-                </div>
-                <div className="card">
-                    <a href="/">
-                        <img src={Post3} alt="" />
-                        <div className="content">
-                            <h3>Aokigahara Forest</h3>
-                            <p className="text"><FontAwesomeIcon icon={faLocationDot} />Yamanashi, Japan</p>
-                        </div>
-                    </a>
-                </div>
-                <div className="card">
-                    <a href="/">
-                        <img src={Post4} alt="" />
-                        <div className="content">
-                            <h3>Willard Asylum</h3>
-                            <p className="text"><FontAwesomeIcon icon={faLocationDot} />Willard, New York</p>
-                        </div>
-                    </a>
-                </div>
-                <div className="card">
-                    <a href="/">
-                        <img src={Post5} alt="" />
-                        <div className="content">
-                            <h3>Catacombs of Paris</h3>
-                            <p className="text"><FontAwesomeIcon icon={faLocationDot} />Paris, France</p>
-                        </div>
-                    </a>
-                </div>
-                <div className="card">
-                    <a href="/">
-                        <img src={Post6} alt="" />
-                        <div className="content">
-                            <h3>Alcatraz</h3>
-                            <p className="text"><FontAwesomeIcon icon={faLocationDot} />San Francisco, California</p>
-                        </div>
-                    </a>
-                </div>
+                <Card image={Post1} title="Chernobyl" location="Kyiv Oblast, Ukraine" />
+                <Card image={Post2} title="The Queen Mary" location="Long Beach, California" />
+                <Card image={Post3} title="Aokigahara Forest" location="Yamanashi, Japan" />
+                <Card image={Post4} title="Willard Asylum" location="Willard, New York" />
+                <Card image={Post5} title="Catacombs of Paris" location="Paris, France" />
+                <Card image={Post6} title="Alcatraz" location="San Francisco, California" />
             </div>
         </div>
         <Footer />
