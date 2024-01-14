@@ -16,12 +16,11 @@ function Home() {
     <div>
         <Header />
         <div id="search">
-            <div className="relative">
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                <input type="text" id="address" name="address" placeholder="Enter a valid address..." autoFocus></input>
-            </div>
-            <div className="flex">
-                <h2>Scary Places</h2>
+            <div className="grid">
+                <div className="relative">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    <input type="text" id="address" name="address" placeholder="Enter a valid address..." autoFocus></input>
+                </div>
                 <div class="input">
                     <div class="style-select">
                         <select name="sortby" id="sortby">
@@ -37,6 +36,9 @@ function Home() {
                         <span class="focus"></span>
                     </div>
                 </div>
+            </div>
+            <div className="flex">
+                <h2>Scary Places</h2>
             </div>
             <div className="container">
                 <Card image={Post1} title="Chernobyl" location="Kyiv Oblast, Ukraine" />
