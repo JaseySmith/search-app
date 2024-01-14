@@ -18,7 +18,7 @@ function About() {
                 <div className="card">
                     <FontAwesomeIcon icon={faReadme} />
                     <h3>Read</h3>
-                    <p className="text">Immerse yourself in spooky tales, unraveling the dark history and mysteries that surround your favorite scary places.</p>
+                    <p className="text">Dive into spooky stories, unraveling the dark history and mysteries that surround your favorite scary places.</p>
                 </div>
                 <div className="card">
                     <FontAwesomeIcon icon={faShareFromSquare} />
