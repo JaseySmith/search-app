@@ -224,7 +224,7 @@ h2 {
   display: grid;
   grid-template-columns: 33fr 33fr 33fr;
   grid-template-rows: auto;
-  gap: 1vw;
+  gap: 16px;
   justify-content: center;
   align-items: center;
 }
@@ -261,7 +261,7 @@ h3 {
 #social .container {
   display: grid;
   grid-template-columns: 25fr 25fr 25fr 25fr;
-  gap: 1vw;
+  gap: 16px;
   grid-template-rows: auto;
   justify-content: center;
   align-items: center;
@@ -428,10 +428,18 @@ form button {
   margin: 0 10%;
 }
 
+#search .grid {
+  display: grid;
+  grid-template-columns: 66fr 33fr;
+  grid-template-rows: auto;
+  grid-gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin: 96px 0 48px;
+}
+
 .relative {
   position: relative;
-  width: 32%;
-  margin: 96px auto 0;
 }
 
 #search input[type="text"] {
@@ -443,7 +451,6 @@ form button {
   border-radius: 10px;
   border: none;
   background-color: var(--shade);
-  box-shadow: 0px 0px 10px 0px var(--accent);
   color: var(--light);
   transition: all 0.2s;
 }
@@ -462,12 +469,7 @@ form button {
   padding: 18px;
 }
 
-#search .flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 48px 0 16px;
-}
+
 
 /* Sort By Input */
 .style-select {
@@ -481,7 +483,7 @@ form button {
   align-items: center;
   position: relative;
   width: 100%;
-  padding: 10px 18px;
+  padding: 14px 18px;
   line-height: 1.5;
   margin: 0;
   overflow: hidden;
@@ -545,6 +547,7 @@ select:focus + .focus {
   border: 2px solid #D62828;
   border-radius: inherit;
 }
+
 /* End */
 
 #search h2 {
@@ -556,14 +559,14 @@ select:focus + .focus {
   display: grid;
   grid-template-columns: 33fr 33fr 33fr;
   grid-template-rows: auto auto;
-  gap: 1vw;
+  gap: 16px;
   justify-content: center;
   align-items: center;
   margin-bottom: 96px;
 }
 
 #search .card {
-  padding: 16px;
+  padding: 8px;
   background-color: var(--shade);
   position: relative;
   transition: all 0.2s;
