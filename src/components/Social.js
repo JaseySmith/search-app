@@ -14,25 +14,21 @@ function Social() {
                 <div className="insta-post">
                   <a href="https://www.instagram.com/p/BuPtonNFjFN/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" target="_blank" rel="noreferrer">
                     <img src={Post1} alt="" />
-                    <div className="overlay"></div>
                   </a>
                 </div>
                 <div className="insta-post">
                   <a href="https://www.instagram.com/p/BxgBlWXFVuD/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" target="_blank" rel="noreferrer">
                     <img src={Post2} alt="" />
-                    <div className="overlay"></div>
                   </a>
                 </div>
                 <div className="insta-post">
                   <a href="https://www.instagram.com/p/BuW_jPIlVKj/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" target="_blank" rel="noreferrer">
                     <img src={Post3} alt="" />
-                    <div className="overlay"></div>
                   </a>
                 </div>
                 <div className="insta-post">
                   <a href="https://www.instagram.com/p/BvfZk71l3mo/?utm_source=ig_web_copy_link" target="_blank" rel="noreferrer">
                     <img src={Post4} alt="" />
-                    <div className="overlay"></div>
                   </a>
                 </div>
             </div>

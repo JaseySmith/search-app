@@ -216,7 +216,7 @@ h2 {
   object-fit: cover;
   background-color: var(--shade);
   border-radius: 20px;
-  opacity: 0.66;
+  opacity: 0.8;
 }
 
 #about a {
@@ -266,20 +266,7 @@ h2 {
   margin: 0;
   object-fit: cover;
   border-radius: 20px;
-}
-
-#social .overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: o;
-  left: 0;
-  height: 100%;
-  width: 100;
-  z-index: 1;
-  background-color: var(--shade);
-  transition: all 0.2s;
-  opacity: 0.1;
+  opacity: 0.8;
 }
 
 
@@ -583,7 +570,7 @@ select::-ms-expand {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   height: 300px;
-  opacity: 0.9;
+  opacity: 0.8;
   transition: all 0.2s;
 }
 
@@ -740,10 +727,6 @@ select::-ms-expand {
   #social .container {
     grid-template-columns: 100fr;
     grid-template-rows: auto;
-  }
-
-  .insta-post {
-    height: 150px;
   }
 
   footer {
