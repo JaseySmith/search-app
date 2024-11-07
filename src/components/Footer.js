@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div>
         <footer>
-          <p className="text copyright">SCARYPLACESNEARME © 2023</p>
+          <p className="text copyright">SCARYPLACESNEARME © 2024</p>
           <nav>
             <a href="https://www.instagram.com/scaryplaces_/" target="_blank" rel="noreferrer">Instagram</a>
             <a href="mailto:scaryplac3s@gmail.com" target="_blank" rel="noreferrer">Email</a>

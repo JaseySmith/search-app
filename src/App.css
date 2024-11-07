@@ -1,23 +1,20 @@
 /* --- Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+
+
 
 /* --- Variables --- */
 :root {
-  --light: #EBEBEB; /* text */
-  --dark: #0E1116; /* background */
+  --light: #EBEBEB;
+  --dark: #0E1116;
   --shade: #171b21;
   --overlay: rgba(0, 0, 0, 0.6);
-  --accent: #ff4747;
+  --accent: #6A0DAD;
 }
 
-[data-theme="dark"] {
-  --light: #0E1116; /* text */
-  --dark: #EBEBEB; /* background */
-  --shade: #E0E0E0;
-  --overlay: rgba(233, 233, 233, 0.8);
-}
+
+
 /* --- Misc. --- */
 * {
   margin: 0;
@@ -34,11 +31,16 @@ body {
   transition: all 0.2s;
   color: var(--light);
   font-family: 'Nunito', sans-serif;
+  font-size: 16px;
   text-align: center;
 }
 
 .text {
   line-height: 1.5;
+}
+
+h1,h2 {
+  font-family: 'Amatic SC', cursive;
 }
 
 
@@ -61,7 +63,7 @@ body {
 }
 
 #logo {
-  font-size: 2.5em;
+  font-size: 42px;
   font-weight: 700;
   font-family: 'Amatic SC', cursive;
   text-decoration: none;
@@ -84,6 +86,7 @@ body {
   color: var(--light);
   transition: all 0.2s;
   opacity: 0.8;
+  padding: 2px;
   margin-left: 32px;
 }
 
@@ -114,25 +117,6 @@ body {
 
 
 
-/* --- Dark Mode Switch --- */
-#toggle {
-  margin: 0 0 0 32px;
-  display: inline-block;
-}
-
-#toggle input {
-  display: none;
-}
-
-.fa-circle-half-stroke {
-  cursor: pointer;
-  font-size: 1.2em;
-  color: var(--light);
-  transition: all 0.2s;
-}
-
-
-
 /* --- Home --- */
 #home {
   padding: 16px 10%;
@@ -142,70 +126,67 @@ body {
   background-position: center;
   background-color: var(--overlay);
   background-blend-mode: overlay;
-  transition: all 0.1s;
 }
 
 #home .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
   width: 100%;
-  text-align: left;
+  text-align: center;
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 68px;
   margin-bottom: 8px;
 }
 
 #home .text {
-  width: 45%;
+  font-size: 16px;
+  width: 40%;
   margin-bottom: 24px;
+  opacity: 0.9;
 }
 
 #home .flex {
+  position: relative;
   display: flex;
   align-items: center;
   z-index: 1;
 }
 
-.alt-btn {
-  padding: 16px 32px;
-  opacity: 0.8;
-  color: var(--light);
-  transition: all 0.1s;
-}
-
-.alt-btn:hover {
-  opacity: 1;
-}
-
-.btn {
-  font-weight: 700;
-  text-decoration: none;
+.search {
+  font-size: 16px;
+  background: var(--dark);
   border: 2px solid var(--accent);
-  background-color: var(--accent);
-  color: var(--dark);
-  overflow: hidden;
+  border-radius: 10px;
+  color: var(--light);
+  padding: 18px 18px 18px 56px;
+  width: 400px;
+}
+
+#home .fa-magnifying-glass {
+  font-size: 18px;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  color: var(--light);
+  opacity: 0.5;
   -webkit-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
-  padding: 16px 32px;
-  border-radius: 10px;
-  display: inline-block;
-  position: relative;
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
-.btn:hover{
+#home .fa-magnifying-glass:hover {
   background-color: transparent;
   color: var(--accent);
   transition: all 0.2s;
-}
-
-.btn:hover:before{
-  left: 0;
 }
 
 
@@ -216,35 +197,38 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5em;
-  margin-bottom: 24px;
+  font-size: 42px;
+  margin-bottom: 32px;
 }
 
 #about .container {
   display: grid;
-  grid-template-columns: 33fr 33fr 33fr;
+  grid-template-columns: 50fr 50fr;
   grid-template-rows: auto;
-  gap: 16px;
+  gap: 32px;
   justify-content: center;
   align-items: center;
 }
 
-#about .card {
+#about img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
   background-color: var(--shade);
-  transition: all 0.2s;
   border-radius: 20px;
-  padding: 64px 32px;
+  opacity: 0.66;
 }
 
-.fa-compass, .fa-readme, .fa-share-from-square {
-  font-size: 4em;
-  margin-bottom: 16px;
+#about a {
+  text-decoration: none;
+}
+
+#about a:hover {
+  text-decoration: underline;
+}
+
+.accentColor {
   color: var(--accent);
-}
-
-h3 {
-  font-size: 2em;
-  margin: 16px 0;
 }
 
 
@@ -362,6 +346,11 @@ footer nav a {
   width: 100%;
 }
 
+form .flex {
+  width: 100%;
+  display: flex;
+}
+
 #contact input[type="text"],textarea {
   font-family: 'Nunito', sans-serif;
   font-weight: 500;
@@ -374,6 +363,10 @@ footer nav a {
   background-color: var(--shade);
   color: var(--light);;
   transition: all 0.2s;
+}
+
+input[name="name"] {
+  margin-right: 4px;
 }
 
 form textarea {
@@ -392,6 +385,25 @@ form button {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 1em;
+}
+
+.btn {
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--accent);
+  border: 2px solid var(--accent);
+  color: var(--dark);
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  padding: 18px 32px;
+}
+
+.btn:hover{
+  background-color: transparent;
+  color: var(--accent);
+  transition: all 0.2s;
 }
 
 ::-webkit-input-placeholder {
@@ -429,28 +441,29 @@ form button {
 }
 
 #search .grid {
+  width: 100%;
   display: grid;
-  grid-template-columns: 66fr 33fr;
+  grid-template-columns: 33fr 33fr 33fr;
   grid-template-rows: auto;
-  grid-gap: 16px;
-  justify-content: center;
+  gap: 16px;
   align-items: center;
   margin: 96px 0 48px;
 }
 
 .relative {
   position: relative;
+  width: 100%;
 }
 
 #search input[type="text"] {
   font-family: 'Nunito', sans-serif;
   font-weight: 500;
-  font-size: 1em;
+  font-size: 16px;
   width: 100%;
-  padding: 18px;
+  padding: 18px 18px 18px 56px;
   border-radius: 10px;
-  border: none;
-  background-color: var(--shade);
+  background-color: var(--dark);
+  border: 2px solid var(--accent);
   color: var(--light);
   transition: all 0.2s;
 }
@@ -459,59 +472,45 @@ form button {
   outline: none;
 }
 
-.fa-magnifying-glass {
+#search .fa-magnifying-glass {
   position: absolute;
   color: var(--light);
-  right: 0;
+  left: 0;
   top: 0;
-  font-size: 1em;
+  font-size: 18px;
   opacity: 0.5;
-  padding: 18px;
+  padding: 22px 20px;
 }
 
+.sort {
+  width: 100%;
+  position: relative;
+}
 
+.fa-sort-down {
+  z-index: 1;
+  position: absolute;
+  color: var(--light);
+  left: 0;
+  top: 0;
+  font-size: 18px;
+  opacity: 0.5;
+  padding: 18px 24px;
+}
 
-/* Sort By Input */
 .style-select {
   display: -ms-grid;
   display: grid;
   grid-template-areas: "select";
   background-color: var(--dark);
   transition: all 0.2s;
-  border: 2px solid #31363c;
-  border-radius: 5px;
+  border-radius: 10px;
   align-items: center;
   position: relative;
   width: 100%;
-  padding: 14px 18px;
-  line-height: 1.5;
-  margin: 0;
+  padding: 0;
   overflow: hidden;
   cursor: pointer;
-}
-
-.style-select select, .style-select::after {
-  grid-row: 1;
-  -ms-grid-row: 1;
-  grid-column: 1;
-  -ms-grid-column: 1;
-  grid-area: select;
-}
-
-.style-select::after {
-  content: "";
-  -ms-grid-column-align: end;
-  justify-self: end;
-  width: 0.8em;
-  height: 0.5em;
-  background-color: #999;
-  -webkit-clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-          clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-}
-
-.filter-results i,
-.filter-results svg {
-  color: #999;
 }
 
 select {
@@ -521,14 +520,15 @@ select {
   background-color: transparent;
   border: none;
   outline: none;
-  padding: 0 1em 0 0;
+  padding: 18px 18px 18px 56px;
   margin: 0;
+  border: 2px solid var(--accent);
   width: 100%;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-  font-size: 1em;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
   color: #999;
-  border-radius: 5px;
+  border-radius: 10px;
   z-index: 1;
   cursor: inherit;
   line-height: inherit;
@@ -537,8 +537,8 @@ select {
 select::-ms-expand {
   display: none;
 }
-
-select:focus + .focus {
+/* leave for now just incase */
+/* select:focus + .focus {
   position: absolute;
   top: -1px;
   left: -1px;
@@ -546,13 +546,13 @@ select:focus + .focus {
   bottom: -1px;
   border: 2px solid #D62828;
   border-radius: inherit;
-}
+}*/
 
 /* End */
 
 #search h2 {
   text-align: left;
-  margin: 0;
+  margin-bottom: 24px;
 }
 
 #search .container {
@@ -566,7 +566,6 @@ select:focus + .focus {
 }
 
 #search .card {
-  padding: 8px;
   background-color: var(--shade);
   position: relative;
   transition: all 0.2s;
@@ -581,8 +580,15 @@ select:focus + .focus {
   width: 100%;
   margin: 0;
   object-fit: cover;
-  border-radius: 10px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
   height: 300px;
+  opacity: 0.9;
+  transition: all 0.2s;
+}
+
+#search img:hover {
+  opacity: 0.6;
 }
 
 .card .content {
@@ -590,7 +596,7 @@ select:focus + .focus {
   transition: all 0.2s;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  padding: 16px 0;
+  padding: 16px 16px 24px;
   text-align: left;
 }
 
@@ -600,8 +606,8 @@ select:focus + .focus {
 }
 
 #search .card h3 {
-  font-size: 1.5em;
-  font-weight: 500;
+  font-size: 26px;
+  font-weight: 200;
   margin: 0;
 }
 
@@ -675,12 +681,12 @@ select:focus + .focus {
     grid-template-rows: auto auto auto;
   }
 
-  #social {
-    padding: 96px 5% 40px;
+  #about img {
+    height: 300px;
   }
 
-  .relative {
-    width: 48.5%;
+  #social {
+    padding: 96px 5% 40px;
   }
 
   #social .container {
@@ -698,6 +704,10 @@ select:focus + .focus {
 
   #search {
     margin: 0 5%;
+  }
+
+  #search .grid {
+    grid-template-columns: 50fr 50fr;
   }
 
   #search .container {
@@ -721,6 +731,15 @@ select:focus + .focus {
 
   #home .text {
     width: 100%;
+  }
+  
+  .search {
+    width: 100%;
+  }
+
+  #social .container {
+    grid-template-columns: 100fr;
+    grid-template-rows: auto;
   }
 
   .insta-post {
@@ -747,6 +766,10 @@ select:focus + .focus {
 
   .relative {
     width: 100%;
+  }
+
+  #search .grid {
+    grid-template-columns: auto;
   }
 
   #search .container {
@@ -812,7 +835,7 @@ select:focus + .focus {
   }
 
   #contact {
-    padding: 96px 30% 40px;
+    padding: 96px 31% 40px;
   }
 
   #search {

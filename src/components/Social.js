@@ -8,7 +8,7 @@ function Social() {
   return (
     <div>
         <div id="social">
-            <h2>Follow Us! @scaryplaces_</h2>
+            <h2>Follow Us! @<span className="accentColor">scaryplaces_</span></h2>
             <p className="text">Follow us on Instagram for bone-chilling visuals, haunting stories, and a journey into the unknown.</p>
             <div className="container">
                 <div className="insta-post">

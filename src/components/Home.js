@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
   return (
@@ -6,10 +8,10 @@ function Home() {
         <div id="home">
             <div className="container">
                 <h1>Explore Scary Places Near You</h1>
-                <p className="text">Uncover scary places worldwide or investigate eerie spots nearby. Begin your search with a valid address and set off on a chilling journey through the cryptic realms of history's secrets.</p>
+                <p className="text">Enter an address to begin searching the world's largest database of scary places, and please.. be careful with what you discover...</p>
                 <div className="flex">
-                    <a className="btn" href="/search">Begin Search</a>
-                    <a className="alt-btn" href="#about">Learn More</a>
+                  <input className="search" type="search" name="search" placeholder="Enter a valid address..."></input>
+                  <a href="/search"><FontAwesomeIcon icon={faMagnifyingGlass} /></a>
                 </div>
             </div>
         </div>

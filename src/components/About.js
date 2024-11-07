@@ -1,29 +1,14 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCompass } from '@fortawesome/free-regular-svg-icons';
-import { faReadme } from '@fortawesome/free-brands-svg-icons';
-import { faShareFromSquare } from '@fortawesome/free-solid-svg-icons';
-
+import Map from '../img/map.png';
 function About() {
     return (
       <div>
           <div id="about">
             <h2>How It Works</h2>
               <div className="container">
-                <div className="card">
-                    <FontAwesomeIcon icon={faCompass} />
-                    <h3>Search</h3>
-                    <p className="text">Embark on a global quest, discovering eerie sites nearby and afar, turning every search into an exciting adventure.</p>
-                </div>
-                <div className="card">
-                    <FontAwesomeIcon icon={faReadme} />
-                    <h3>Read</h3>
-                    <p className="text">Dive into spooky stories, unraveling the dark history and mysteries that surround your favorite scary places.</p>
-                </div>
-                <div className="card">
-                    <FontAwesomeIcon icon={faShareFromSquare} />
-                    <h3>Share</h3>
-                    <p className="text">Send haunted highlights to friends, transforming spooky discoveries into shared adventures and communal chills.</p>
+                <img src={Map} alt="" />
+                <div className="text">
+                  <p>ScaryPlacesNearMe is your gateway to discovering haunted locations worldwide. Simply search by location and uncover a vast collection of eerie places that stir curiosity and invite exploration. Whether you're looking to share these mysterious spots with others or daring to visit them yourself, the adventure starts <a href="/search"><span className="accentColor">here.</span></a></p>
                 </div>
               </div>
           </div>

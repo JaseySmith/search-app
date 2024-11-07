@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import DarkModeToggle from './DarkMode';
 
 export default function Header() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -33,9 +32,8 @@ export default function Header() {
           isNavExpanded ? "nav-menu expanded" : "nav-menu"
         }>
           <a onClick={handleNavClick} href="/">Home</a>
-          <a onClick={handleNavClick} href="/contact">Contact</a>
           <a onClick={handleNavClick} href="/search">Search</a>
-          <DarkModeToggle />
+          <a onClick={handleNavClick} href="/contact">Contact</a>
         </nav>
         <div className="burger"
         onClick={() => {
