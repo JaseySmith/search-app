@@ -9,7 +9,7 @@ import Map from "../components/Map";
 import allLocations from '../data/places.json';
 import imageMap from '../components/ImageMap';
 
-function Home() {
+function Search() {
 
 
     const [distance, setDistance] = useState("100");
@@ -20,13 +20,13 @@ function Home() {
           image: imageMap[place.image] || '', // fallback if image not found
         }));
       
-    const [locations, setLocations] = useState(addImageUrls(allLocations));
+    
     const [filtered, setFiltered] = useState(addImageUrls(allLocations));
       
     
     const [address, setAddress] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
-    const [userCoords, setUserCoords] = useState(null); // set this later with a geolocation function
+    
 
     // Haversine distance function
     function getDistanceInMiles(coord1, coord2) {
@@ -54,10 +54,11 @@ function Home() {
           return;
         }
       
-        setUserCoords(coords); // optional, only if you want to reuse
       
-        const results = locations.filter((place) => {
-          const matchCategory = selectedCategory
+        const allWithImages = addImageUrls(allLocations);
+
+        const results = allWithImages.filter((place) => {
+        const matchCategory = selectedCategory
             ? place.category === selectedCategory
             : true;
       
@@ -147,4 +148,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Search;
