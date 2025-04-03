@@ -2,18 +2,27 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
-const Card = ({ link, image, title, location }) => {
-  return (
-    <div className="card">
-      <a href={link} target="_blank" rel="noreferrer">
-        <img src={image} alt="" />
-        <div className="content">
-          <h3>{title}</h3>
-          <p className="text"><FontAwesomeIcon icon={faLocationDot} />{location}</p>
-        </div>
+
+const LocationCard = ({ name, location, image, description, link }) => (
+  <div className="location-card">
+    <img src={image} alt={name} className="location-image" />
+    <div className="location-content">
+      <h3 className="location-title">{name}</h3>
+      <p className="location-meta">
+        <FontAwesomeIcon icon={faLocationDot} className="icon" />
+        {location}
+      </p>
+      <p className="location-description">{description}</p>
+      <a
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+        className="location-link"
+      >
+        Explore
       </a>
     </div>
-  );
-}
+  </div>
+);
 
-export default Card;
+export default LocationCard;

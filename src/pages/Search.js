@@ -1,54 +1,145 @@
-import React from 'react';
+import { useState } from "react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Card from '../components/Card';
-import Post1 from '../img/post1.webp';
-import Post2 from '../img/post2.webp';
-import Post3 from '../img/post3.webp';
-import Post4 from '../img/post4.webp';
-import Post5 from '../img/post5.webp';
-import Post6 from '../img/post6.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
+import Map from "../components/Map";
+import allLocations from '../data/places.json';
+import imageMap from '../components/ImageMap';
 
 function Home() {
+
+
+    const [distance, setDistance] = useState("100");
+
+    const addImageUrls = (places) =>
+        places.map((place) => ({
+          ...place,
+          image: imageMap[place.image] || '', // fallback if image not found
+        }));
+      
+    const [locations, setLocations] = useState(addImageUrls(allLocations));
+    const [filtered, setFiltered] = useState(addImageUrls(allLocations));
+      
+    
+    const [address, setAddress] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const [userCoords, setUserCoords] = useState(null); // set this later with a geolocation function
+
+    // Haversine distance function
+    function getDistanceInMiles(coord1, coord2) {
+        const toRad = (value) => (value * Math.PI) / 180;
+      
+        const R = 3958.8; // Earth radius in miles
+        const dLat = toRad(coord2.lat - coord1.lat);
+        const dLon = toRad(coord2.lng - coord1.lng);
+      
+        const a =
+          Math.sin(dLat / 2) ** 2 +
+          Math.cos(toRad(coord1.lat)) *
+            Math.cos(toRad(coord2.lat)) *
+            Math.sin(dLon / 2) ** 2;
+      
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      
+        return R * c;
+    }
+
+    const handleSearch = async () => {
+        const coords = await geocodeAddress(address);
+        if (!coords) {
+          alert("Address not found. Try being more specific.");
+          return;
+        }
+      
+        setUserCoords(coords); // optional, only if you want to reuse
+      
+        const results = locations.filter((place) => {
+          const matchCategory = selectedCategory
+            ? place.category === selectedCategory
+            : true;
+      
+          const matchDistance =
+            getDistanceInMiles(coords, { lat: place.lat, lng: place.lng }) <= parseFloat(distance);
+      
+          return matchCategory && matchDistance;
+        });
+      
+        setFiltered(results);
+    };
+
+    const geocodeAddress = async (address) => {
+    const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`
+    );
+    const data = await response.json();
+    
+    if (data.length > 0) {
+        return {
+        lat: parseFloat(data[0].lat),
+        lng: parseFloat(data[0].lon),
+        };
+    }
+    
+    return null;
+    };
+
+      
+
   return (
     <div>
         <Header />
         <div id="search">
-            <div className="grid">
-                <div className="relative">
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    <input type="text" id="address" name="address" placeholder="Enter a valid address..." autoFocus></input>
-                </div>
-                <div class="sort">
-                    <FontAwesomeIcon icon={faSortDown} />
-                    <div class="style-select">
-                        <select name="sortby" id="sortby">
-                            <option value="Categories...">Sort By:</option>
-                            <option value="Abandoned">Abandoned</option>
-                            <option value="Castles">Castles</option>
-                            <option value="Catacombs">Catacombs</option>
-                            <option value="Forests">Forests</option>
-                            <option value="Haunted">Haunted</option>
-                            <option value="Asylums">Asylums</option>
-                            <option value="Prisons">Prisons</option>
-                        </select>
-                        <span class="focus"></span>
-                    </div>
-                </div>
-            </div>
+            
             <div className="flex">
+                <h2>Enter an Address</h2>
+                <div className="grid">
+                    <div className="relative">
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        <input type="text" id="address" name="address" placeholder="1234 Haunted Lane..." value={address} onChange={(e) => setAddress(e.target.value)} autoFocus />
+                    </div>
+                    <div class="sort">
+                        <FontAwesomeIcon icon={faSortDown} />
+                        <div class="style-select">
+                            <select name="sortby" id="sortby" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}> 
+                                <option value="">Sort By:</option>
+                                <option value="Abandoned Structures">Abandoned Structures</option>
+                                <option value="Asylums & Hospitals">Asylums & Hospitals</option>
+                                <option value="Castles & Strongholds">Castles & Strongholds</option>
+                                <option value="Haunted Houses">Haunted Houses</option>
+                                <option value="Tombs & Catacombs">Tombs & Catacombs</option>
+                                <option value="Remote Areas">Remote Areas</option>
+                            </select>
+                            <span class="focus"></span>
+                        </div>
+                    </div>
+                    <div className="distance-filter">
+                        <p>Within:</p>
+                        {["25", "50", "100", "250", "500"].map((mi) => (
+                            <button
+                                key={mi}
+                                className={`pill ${distance === mi ? "active" : ""}`}
+                                onClick={() => setDistance(mi)}
+                            >
+                                 {mi} mi
+                            </button>
+                        ))}
+                    </div>
+                    <div className="btn" onClick={handleSearch}>Search</div>
+                </div>
+                <section className="map-wrapper">
+                    <Map />
+                </section>
+            </div>
+            <div>
                 <h2>Results:</h2>
             </div>
             <div className="container">
-                <Card link="https://en.wikipedia.org/wiki/Chernobyl" image={Post1} title="Chernobyl" location="Kyiv Oblast, Ukraine" />
-                <Card link="https://en.wikipedia.org/wiki/RMS_Queen_Mary" image={Post2} title="The Queen Mary" location="Long Beach, California" />
-                <Card link="https://en.wikipedia.org/wiki/Aokigahara" image={Post3} title="Aokigahara Forest" location="Yamanashi, Japan" />
-                <Card link="https://en.wikipedia.org/wiki/Willard_Asylum_for_the_Chronic_Insane" image={Post4} title="Willard Asylum" location="Willard, New York" />
-                <Card link="https://en.wikipedia.org/wiki/Catacombs_of_Paris" image={Post5} title="Catacombs of Paris" location="Paris, France" />
-                <Card link="https://en.wikipedia.org/wiki/Alcatraz_Island" image={Post6} title="Alcatraz" location="San Francisco, California" />
+                {filtered.map((place) => (
+                    <Card key={place.id} {...place} />
+                ))}
             </div>
         </div>
         <Footer />

@@ -1,0 +1,202 @@
+[
+  {
+    "id": "1",
+    "name": "Hanging Coffins of Sagada",
+    "location": "Sagada, Philippines",
+    "lat": 17.0841,
+    "lng": 120.9250,
+    "category": "Tombs & Catacombs",
+    "description": "Ancient coffins suspended on cliffs by the Igorot people, believed to bring the deceased closer to ancestral spirits.",
+    "image": "hanging-coffins-sagada.jpg"
+  },
+  {
+    "id": "2",
+    "name": "The Queen Mary",
+    "location": "Long Beach, California, USA",
+    "lat": 33.7528,
+    "lng": -118.1897,
+    "category": "Abandoned Structures",
+    "description": "A retired ocean liner turned hotel, renowned for reported paranormal activities and ghost sightings.",
+    "image": "queen-mary.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Christ of the Abyss",
+    "location": "San Fruttuoso, Italy",
+    "lat": 44.3105,
+    "lng": 9.1756,
+    "category": "Remote Areas",
+    "description": "A submerged bronze statue of Jesus Christ, a popular site for divers and associated with maritime legends.",
+    "image": "christ-of-the-abyss.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Clonony Castle",
+    "location": "County Offaly, Ireland",
+    "lat": 53.1944,
+    "lng": -7.8840,
+    "category": "Castles & Strongholds",
+    "description": "A 16th-century Tudor castle with a history of hauntings and mysterious occurrences.",
+    "image": "clonony-castle.webp"
+  },
+  {
+    "id": "5",
+    "name": "Willard Asylum",
+    "location": "Ovid, New York, USA",
+    "lat": 42.6826,
+    "lng": -76.8666,
+    "category": "Asylums & Hospitals",
+    "description": "An abandoned psychiatric hospital with a dark history and reports of paranormal activity.",
+    "image": "willard-asylum.jpg"
+  },
+  {
+    "id": "6",
+    "name": "Nevada County Hospital",
+    "location": "Nevada City, California, USA",
+    "lat": 39.2616,
+    "lng": -121.0161,
+    "category": "Asylums & Hospitals",
+    "description": "Also known as the Nevada City Insane Asylum, this historic hospital has a reputation for eerie occurrences.",
+    "image": "nevada-county-hospital.jpg"
+  },
+  {
+    "id": "7",
+    "name": "Rolling Hills Asylum",
+    "location": "East Bethany, New York, USA",
+    "lat": 42.8810,
+    "lng": -78.1325,
+    "category": "Asylums & Hospitals",
+    "description": "A former poorhouse and infirmary, now known for ghost tours and paranormal investigations.",
+    "image": "rolling-hills-asylum.jpg"
+  },
+  {
+    "id": "8",
+    "name": "Hồ Thuỷ Tiên",
+    "location": "Huế, Vietnam",
+    "lat": 16.3988,
+    "lng": 107.5950,
+    "category": "Abandoned Structures",
+    "description": "An abandoned water park featuring eerie dragon sculptures and overgrown attractions.",
+    "image": "ho-thuy-tien.jpg"
+  },
+  {
+    "id": "9",
+    "name": "Kent Masonic Temple",
+    "location": "Kent, Ohio, USA",
+    "lat": 41.1537,
+    "lng": -81.3579,
+    "category": "Haunted Houses",
+    "description": "A historic Masonic temple with rumors of secret rituals and ghostly apparitions.",
+    "image": "kent-masonic-temple.jpg"
+  },
+  {
+    "id": "10",
+    "name": "The Skull Chapel",
+    "location": "Czermna, Poland",
+    "lat": 50.4550,
+    "lng": 16.2414,
+    "category": "Tombs & Catacombs",
+    "description": "A chapel adorned with thousands of human skulls and bones, serving as a memento mori.",
+    "image": "skull-chapel.jpg"
+  },
+  {
+    "id": "11",
+    "name": "Trans-Allegheny Lunatic Asylum",
+    "location": "Weston, West Virginia, USA",
+    "lat": 39.0381,
+    "lng": -80.4676,
+    "category": "Asylums & Hospitals",
+    "description": "A historic psychiatric hospital known for its massive structure and reports of hauntings.",
+    "image": "trans-allegheny-asylum.jpg"
+  },
+  {
+    "id": "12",
+    "name": "Aokigahara Forest",
+    "location": "Yamanashi Prefecture, Japan",
+    "lat": 35.4876,
+    "lng": 138.7578,
+    "category": "Remote Areas",
+    "description": "Also known as the 'Sea of Trees,' this forest is infamous for its association with suicides and eerie silence.",
+    "image": "aokigahara-forest.jpg"
+  },
+  {
+    "id": "13",
+    "name": "Chernobyl Exclusion Zone",
+    "location": "Pripyat, Ukraine",
+    "lat": 51.3890,
+    "lng": 30.0990,
+    "category": "Abandoned Structures",
+    "description": "The site of the 1986 nuclear disaster, now a ghost town with decaying buildings and a haunting atmosphere.",
+    "image": "chernobyl.jpg"
+  },
+  {
+    "id": "14",
+    "name": "Island of the Dolls",
+    "location": "Xochimilco, Mexico",
+    "lat": 19.2794,
+    "lng": -99.0965,
+    "category": "Haunted Houses",
+    "description": "An island adorned with decaying dolls, believed to be haunted by the spirit of a drowned girl.",
+    "image": "island-of-the-dolls.png"
+  },
+  {
+    "id": "15",
+    "name": "Catacombs of Paris",
+    "location": "Paris, France",
+    "lat": 48.8338,
+    "lng": 2.3324,
+    "category": "Tombs & Catacombs",
+    "description": "An underground ossuary holding the remains of over six million people, arranged in artistic displays.",
+    "image": "catacombs-paris.jpg"
+  },
+  {
+    "id": "16",
+    "name": "The Whaley House",
+    "location": "San Diego, California, USA",
+    "lat": 32.7520,
+    "lng": -117.1940,
+    "category": "Haunted Houses",
+    "description": "A historic house museum known for paranormal reports and tragic past events involving the Whaley family.",
+    "image": "whaley-house.jpg"
+  },
+  {
+    "id": "17",
+    "name": "The Bates Mansion",
+    "location": "Universal City, California, USA",
+    "lat": 34.1381,
+    "lng": -118.3534,
+    "category": "Haunted Houses",
+    "description": "Famous for its appearance in Hitchcock's 'Psycho,' the mansion still sits on the Universal backlot.",
+    "image": "bates-mansion.jpg"
+  },
+  {
+    "id": "18",
+    "name": "Alcatraz Island",
+    "location": "San Francisco, California, USA",
+    "lat": 37.8270,
+    "lng": -122.4230,
+    "category": "Abandoned Structures",
+    "description": "The infamous prison island is said to be haunted by former inmates and guards alike.",
+    "image": "alcatraz.jpg"
+  },
+  {
+    "id": "19",
+    "name": "Devils Tower",
+    "location": "Concrete, Washington, USA",
+    "lat": 48.5433,
+    "lng": -121.7517,
+    "category": "Remote Areas",
+    "description": "A remote tower-like formation with satanic folklore tied to eerie disappearances and rituals.",
+    "image": "devils-tower.jpg"
+  },
+  {
+    "id": "20",
+    "name": "Winchester Mystery House",
+    "location": "San Jose, California, USA",
+    "lat": 37.3184,
+    "lng": -121.9511,
+    "category": "Haunted Houses",
+    "description": "A sprawling mansion known for its architectural oddities and paranormal reputation tied to Sarah Winchester.",
+    "image": "winchester-mystery-house.jpg"
+  }
+]
