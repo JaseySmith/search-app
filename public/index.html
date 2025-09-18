@@ -25,6 +25,13 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Scary Places</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAORO95t8L60CI_uAskdOTcWfFTibGTdOI&libraries=places&callback=initGoogleMaps" async defer></script>
+    <script>
+      function initGoogleMaps() {
+        // Google Maps API loaded successfully - no error needed
+        console.log('Google Maps API loaded for Places autocomplete');
+      }
+    </script>
   </head>
   <body>
     <form name="contact" data-netlify="true" hidden>

@@ -31,87 +31,75 @@ const Background = () => {
           },
           particles: {
             number: {
-              value: 60,
+              value: 80,
               density: {
                 enable: true,
-                value_area: 1000,
+                value_area: 800,
               },
             },
             color: {
-              value: "#A278FF", 
+              value: ["#c8c8c8", "#a0a0a0", "#808080", "#606060", "#a278ff", "#8b5cf6", "#7c3aed"], 
             },
             shape: {
               type: "circle",
             },
             opacity: {
-              value: 0.2,
+              value: 0.2175,
               random: true,
               anim: {
                 enable: true,
-                speed: 0.5,
-                opacity_min: 0.1,
+                speed: 0.3,
+                opacity_min: 0.1095,
+                opacity_max: 0.654,
                 sync: false,
               },
             },
             size: {
-              value: 2,
+              value: 3,
               random: true,
               anim: {
                 enable: true,
-                speed: 1,
-                size_min: 0.5,
+                speed: 0.5,
+                size_min: 1,
+                size_max: 6,
                 sync: false,
               },
             },
             links: {
-              enable: true,
-              distance: 130,
-              color: "#a278ff",
-              opacity: 0.3,
-              width: 2,
-              triangles: {
-                enable: true,
-                color: ["#a278ff"],
-                opacity: 0.03,
-              },
+              enable: false,
             },
             move: {
               enable: true,
-              speed: 0.2,
+              speed: 0.55,
               direction: "none",
               random: true,
               straight: false,
               out_mode: "out",
               bounce: false,
+              drift: {
+                enable: true,
+                drift_x: 2.75,
+                drift_y: 1.1,
+              },
+            },
+            twinkle: {
+              particles: {
+                enable: true,
+                frequency: 0.05,
+                opacity: 1,
+              },
             },
           },
           interactivity: {
             detect_on: "canvas",
             events: {
               onhover: {
-                enable: true,
-                mode: "grab",
+                enable: false,
               },
               onclick: {
-                enable: true,
-                mode: "push",
+                enable: false,
               },
               resize: true,
-            },
-            modes: {
-              grab: {
-                distance: 180,
-                line_linked: {
-                  opacity: 0.6,
-                },
-              },
-              push: {
-                particles_nb: 2,
-              },
-              repulse: {
-                distance: 100,
-                duration: 0.4,
-              },
             },
           },
           retina_detect: true,
