@@ -1,11 +1,21 @@
 import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
+import { useEffect } from "react";
+import { loadGoogleMaps } from "./components/loadGoogleMaps";
 import HomePage from './components/HomePage';
 import Contact from './pages/Contact';
 import Search from './pages/Search';
 import './App.css';
 
 function App() {
+
+  useEffect(() => {
+    loadGoogleMaps().catch((e) => {
+      console.error("Failed to load Google Maps:", e);
+    });
+  }, []);
+  
+
   return (
     <div className="App">
       <Router>

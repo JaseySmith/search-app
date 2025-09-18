@@ -1639,7 +1639,6 @@ footer nav a {
   }
 
   h1 {
-    font-size: 48px;
     margin-bottom: 12px;
   }
 
@@ -1708,7 +1707,6 @@ footer nav a {
     padding: 20px 40px;
   }
 
-
   footer {
     padding: 32px 5%;
   }
@@ -1729,8 +1727,8 @@ footer nav a {
     padding: 40px 32px;
   }
 
-  .results-section {
-    padding: 60px 0 80px;
+  .search-header {
+    margin-bottom: 40px;
   }
 
   .search-header h1 {
@@ -1764,6 +1762,10 @@ footer nav a {
     padding: 60px 0 80px;
   }
 
+  .results-header {
+    margin-bottom: 40px;
+  }
+
   .results-header h2 {
     font-size: 36px;
     margin-bottom: 12px;
@@ -1773,16 +1775,15 @@ footer nav a {
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
   }
+
+  .contact-header {
+    margin-bottom: 40px;
+  }
 }
 
 @media screen and (max-width: 766px) {
   h1 {
-    font-size: 36px;
     margin-bottom: 8px;
-  }
-
-  h2 {
-    font-size: 32px;
   }
 
   .hero-subtitle {
@@ -1805,7 +1806,6 @@ footer nav a {
   }
 
   .features-section h2 {
-    font-size: 32px;
     margin-bottom: 48px;
   }
 
@@ -1832,7 +1832,6 @@ footer nav a {
   }
 
   .testimonials-section h2 {
-    font-size: 32px;
     margin-bottom: 48px;
   }
 
@@ -1849,7 +1848,6 @@ footer nav a {
   }
 
   .cta-content h2 {
-    font-size: 32px;
     margin-bottom: 16px;
   }
 
@@ -1883,7 +1881,6 @@ footer nav a {
   }
 
   .search-header h1 {
-    font-size: 32px;
     margin-bottom: 12px;
   }
 
@@ -1947,7 +1944,6 @@ footer nav a {
   }
 
   .results-header h2 {
-    font-size: 28px;
     margin-bottom: 8px;
   }
 
@@ -2042,7 +2038,6 @@ footer nav a {
   }
 
   .contact-header h1 {
-    font-size: 36px;
     margin-bottom: 16px;
   }
 

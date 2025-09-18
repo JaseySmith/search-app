@@ -1,123 +1,113 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-const GooglePlacesAutocomplete = ({ onPlaceSelect, onSubmit, onAddressChange, placeholder = "Enter your address or city..." }) => {
+const GooglePlacesAutocomplete = ({
+  onPlaceSelect,          // fires on real Google selection (mouse or Enter on a suggestion)
+  onSubmit,               // called with current input value on Enter when no suggestion is being selected
+  onAddressChange,
+  placeholder = "Enter your address or city..."
+}) => {
   const inputRef = useRef(null);
   const autocompleteRef = useRef(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [, setSelectedPlace] = useState(null);
 
+  const handlePlaceChanged = useCallback(() => {
+    const ac = autocompleteRef.current;
+    if (!ac) return;
+
+    const place = ac.getPlace();
+    const hasGeom =
+      place?.geometry?.location &&
+      typeof place.geometry.location.lat === "function" &&
+      typeof place.geometry.location.lng === "function";
+
+    const hasText =
+      (place?.formatted_address && place.formatted_address.trim() !== "") ||
+      (place?.name && place.name.trim() !== "");
+
+    if (hasGeom && hasText) {
+      const placeData = {
+        place_id: place.place_id,
+        formatted_address: place.formatted_address,
+        name: place.name || place.formatted_address,
+        lat: place.geometry.location.lat(),
+        lng: place.geometry.location.lng(),
+        address_components: place.address_components || []
+      };
+      setSelectedPlace(placeData);
+      onPlaceSelect?.(placeData); // parent effect will trigger search
+    } else if (hasText) {
+      const placeData = {
+        place_id: place.place_id || "",
+        formatted_address: place.formatted_address || place.name,
+        name: place.name || place.formatted_address,
+        lat: null,
+        lng: null,
+        address_components: place.address_components || []
+      };
+      setSelectedPlace(placeData);
+      onPlaceSelect?.(placeData);
+    } else {
+      setSelectedPlace(null);
+      onPlaceSelect?.(null);
+    }
+  }, [onPlaceSelect]);
+
   const initializeAutocomplete = useCallback(() => {
     if (!inputRef.current || !window.google) return;
 
-    console.log('Initializing Google Places Autocomplete...');
-    
-    autocompleteRef.current = new window.google.maps.places.Autocomplete(inputRef.current, {
-      types: ['geocode'],
-      fields: ['place_id', 'formatted_address', 'geometry', 'name', 'address_components']
+    const ac = new window.google.maps.places.Autocomplete(inputRef.current, {
+      types: ["geocode"],
+      fields: ["place_id", "formatted_address", "geometry", "name", "address_components"],
+      // componentRestrictions: { country: ["us"] }, // optional
     });
 
-    autocompleteRef.current.addListener('place_changed', () => {
-      console.log('Place changed event fired!');
-      const place = autocompleteRef.current.getPlace();
-      console.log('Selected place:', place);
-      
-      // Check if this is a valid place selection (not just clearing the input)
-      const isValidPlace = place && 
-        (place.geometry && place.geometry.location) && 
-        place.formatted_address && 
-        place.formatted_address.trim() !== '';
-      
-      if (isValidPlace) {
-        const placeData = {
-          place_id: place.place_id,
-          formatted_address: place.formatted_address,
-          name: place.name || place.formatted_address,
-          lat: place.geometry.location.lat(),
-          lng: place.geometry.location.lng(),
-          address_components: place.address_components
-        };
-        
-        console.log('Setting selected place:', placeData);
-        setSelectedPlace(placeData);
-        
-        if (onPlaceSelect) {
-          onPlaceSelect(placeData);
-        }
-      } else if (place && place.name && place.name.trim() !== '') {
-        // If place exists but no geometry, just use the name for search
-        const placeData = {
-          place_id: place.place_id || '',
-          formatted_address: place.formatted_address || place.name,
-          name: place.name,
-          lat: null,
-          lng: null,
-          address_components: place.address_components || []
-        };
-        
-        console.log('Setting selected place (no geometry):', placeData);
-        setSelectedPlace(placeData);
-        
-        if (onPlaceSelect) {
-          onPlaceSelect(placeData);
-        }
-      } else {
-        // Invalid or empty place - clear the selection
-        console.log('Invalid/empty place, clearing selection');
-        setSelectedPlace(null);
-        if (onPlaceSelect) {
-          onPlaceSelect(null);
-        }
-      }
-    });
-  }, [onPlaceSelect]);
+    autocompleteRef.current = ac;
+    ac.addListener("place_changed", handlePlaceChanged);
+  }, [handlePlaceChanged]);
 
   useEffect(() => {
+    let timer;
     const checkGoogleMaps = () => {
-      if (window.google && window.google.maps && window.google.maps.places) {
+      if (window.google?.maps?.places) {
         setIsLoaded(true);
         initializeAutocomplete();
       } else {
-        setTimeout(checkGoogleMaps, 100);
+        timer = setTimeout(checkGoogleMaps, 100);
       }
     };
-
     checkGoogleMaps();
+
+    return () => {
+      if (timer) clearTimeout(timer);
+      const ac = autocompleteRef.current;
+      if (ac && window.google?.maps?.event) {
+        window.google.maps.event.clearInstanceListeners(ac);
+      }
+    };
   }, [initializeAutocomplete]);
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+  // Submit on Enter for free-text. If a dropdown item is actively being chosen,
+  // let Google fire place_changed instead (avoids double-submit).
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === "NumpadEnter") {
       e.preventDefault();
-      
-      // Check if Google Places dropdown is open
-      const dropdown = document.querySelector('.pac-container');
-      const isDropdownOpen = dropdown && dropdown.style.display !== 'none';
-      
-      if (isDropdownOpen) {
-        // Try to select the highlighted item in the dropdown
-        const highlightedItem = document.querySelector('.pac-item.pac-item-selected');
-        if (highlightedItem) {
-          // Simulate a click on the highlighted item
-          highlightedItem.click();
-          // Wait for place_changed event to fire, then submit
-          setTimeout(() => {
-            if (onSubmit) {
-              onSubmit();
-            }
-          }, 200);
-        } else {
-          // No highlighted item, just submit with current input
-          if (onSubmit) {
-            onSubmit();
-          }
-        }
-      } else {
-        // Dropdown is closed, submit normally
-        if (onSubmit) {
-          onSubmit();
-        }
+
+      const container = document.querySelector(".pac-container");
+      const highlighted = document.querySelector(".pac-item.pac-item-selected");
+
+      const dropdownOpen =
+        container && (container.style.display === "" || container.style.display === "block");
+
+      if (dropdownOpen && highlighted) {
+        // Let Google trigger place_changed → parent effect will search.
+        return;
       }
+
+      const val = inputRef.current?.value ?? "";
+      onSubmit?.(val); // parent will geocode and search
     }
   };
 
@@ -129,13 +119,11 @@ const GooglePlacesAutocomplete = ({ onPlaceSelect, onSubmit, onAddressChange, pl
           ref={inputRef}
           type="text"
           placeholder={placeholder}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyDown}
           onChange={(e) => {
-            console.log('Input changed, clearing selected place');
+            // Clear local selection and tell parent text changed (parent clears its selection too)
             setSelectedPlace(null);
-            if (onAddressChange) {
-              onAddressChange(e);
-            }
+            onAddressChange?.(e);
           }}
           style={{
             width: '100%',
