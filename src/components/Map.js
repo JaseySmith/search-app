@@ -1,6 +1,5 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import places from "../data/places.json";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
@@ -6,9 +6,9 @@ const GooglePlacesAutocomplete = ({ onPlaceSelect, onSubmit, onAddressChange, pl
   const inputRef = useRef(null);
   const autocompleteRef = useRef(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [, setSelectedPlace] = useState(null);
 
-  const initializeAutocomplete = () => {
+  const initializeAutocomplete = useCallback(() => {
     if (!inputRef.current || !window.google) return;
 
     console.log('Initializing Google Places Autocomplete...');
@@ -71,7 +71,7 @@ const GooglePlacesAutocomplete = ({ onPlaceSelect, onSubmit, onAddressChange, pl
         }
       }
     });
-  };
+  }, [onPlaceSelect]);
 
   useEffect(() => {
     const checkGoogleMaps = () => {
@@ -84,7 +84,7 @@ const GooglePlacesAutocomplete = ({ onPlaceSelect, onSubmit, onAddressChange, pl
     };
 
     checkGoogleMaps();
-  }, []);
+  }, [initializeAutocomplete]);
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
